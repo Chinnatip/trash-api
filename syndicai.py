@@ -4,6 +4,7 @@ import base64
 from helpers import draw_box, url_to_img, img_to_bytes
 from boto.s3.connection import S3Connection
 from boto.s3.key import Key
+from datetime import datetime
 
 # custom yolo weight instead of torch hub
 # https://github.com/ultralytics/yolov5/issues/1605
@@ -51,11 +52,15 @@ class PythonPredictor:
         AWS_ACCESS_KEY = 'AKIA5ATH3XN45KU2YYMB'
         AWS_SECRET_KEY = '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'
 
+        # Get current time
+        now = datetime.now()
+        dt_string = now.strftime("%d-%m-%Y-%H:%M")
+
         picture = "data:image/jpg;base64,"+img_to_bytes(box_img)
         conn = S3Connection(AWS_ACCESS_KEY, AWS_SECRET_KEY)
         bucket = conn.get_bucket(S3_BUCKET_NAME)
         k = Key(bucket)
-        image_id = 'yyyy'
+        image_id = dt_string
         image_key = '/gather/ariaround/store/'+ image_id + '.jpg'
         k.key = image_key
         picture = picture.replace("data:image/jpg;base64,","")
