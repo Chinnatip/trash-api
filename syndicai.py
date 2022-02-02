@@ -45,7 +45,7 @@ class PythonPredictor:
             dictionary[item] = dictionary.get(item, 0) + 1
 
         return {
-            "trash_amount": len(boxes)
-            # "annotate": dictionary,
+            "trash_amount": len(boxes),
+            "annotate": dictionary
             # "image": img_to_bytes(box_img)
         }
