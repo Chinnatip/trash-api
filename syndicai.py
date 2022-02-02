@@ -1,5 +1,5 @@
 import torch
-import JSON
+import json
 from PIL import Image 
 from helpers import draw_box, url_to_img, img_to_bytes
 
@@ -44,10 +44,7 @@ class PythonPredictor:
         for item in lists:
             dictionary[item] = dictionary.get(item, 0) + 1
 
-        # Save image
-        #box_img.save("sample_data/output.png", "PNG")
-        # return len(boxes)
-        return JSON.stringify({
+        return json.dumps({
             "trash_amount": len(boxes),
             "annotate": dictionary,
             # "image": img_to_bytes(box_img)
