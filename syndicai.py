@@ -44,8 +44,8 @@ class PythonPredictor:
         for item in lists:
             dictionary[item] = dictionary.get(item, 0) + 1
 
-        return json.dumps({
+        return {
             "trash_amount": len(boxes),
-            "annotate": dictionary,
+            # "annotate": dictionary,
             # "image": img_to_bytes(box_img)
-        })
+        }
