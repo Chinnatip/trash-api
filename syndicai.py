@@ -38,7 +38,7 @@ class PythonPredictor:
 
         # Save image
         #box_img.save("sample_data/output.png", "PNG")
-        return img_to_bytes(box_img)
+        return boxes
         # return { 
         #     "annotate": boxes ,
         #     "image": img_to_bytes(box_img)
