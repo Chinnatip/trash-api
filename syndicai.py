@@ -34,12 +34,20 @@ class PythonPredictor:
 
         # Draw boxes
         boxes = results.xyxy[0].numpy()
-        box_img = draw_box(img, boxes)
+        # box_img = draw_box(img, boxes)
+        # lists = []
+        # for box in boxes:
+        #     lists.append(int(box[-1]))
+
+        # dictionary = {}
+        # for item in lists:
+        #     dictionary[item] = dictionary.get(item, 0) + 1
 
         # Save image
         #box_img.save("sample_data/output.png", "PNG")
-
-        return {
-            "trash_amount": len(boxes),
-            "image": img_to_bytes(box_img)
-        }
+        return len(boxes)
+        # return {
+        #     "trash_amount": len(boxes),
+        #     "annotate": dictionary,
+        #     "image": img_to_bytes(box_img)
+        # }
